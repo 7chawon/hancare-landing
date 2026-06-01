@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ArrowUpRight } from './Decorations.jsx'
+import { useConsult } from './ConsultModal.jsx'
 import hansolLogo from '../image/HANSOL_LOGO.png'
 
 const NAV = [
@@ -12,6 +13,7 @@ const NAV = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const consult = useConsult()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16)
@@ -53,10 +55,10 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <a href="#contact" className="btn-primary">
+          <button type="button" onClick={consult.open} className="btn-primary">
             상담 신청
             <ArrowUpRight />
-          </a>
+          </button>
         </div>
 
         {/* 모바일 토글 */}
@@ -87,10 +89,17 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
-            <a href="#contact" onClick={() => setOpen(false)} className="btn-primary mt-2 justify-center">
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false)
+                consult.open()
+              }}
+              className="btn-primary mt-2 justify-center"
+            >
               상담 신청
               <ArrowUpRight />
-            </a>
+            </button>
           </nav>
         </div>
       )}

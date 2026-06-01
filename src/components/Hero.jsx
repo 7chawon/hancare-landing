@@ -1,5 +1,6 @@
 import { Star, ArrowUpRight, ArrowSwoosh } from './Decorations.jsx'
 import RollingNumber from './RollingNumber.jsx'
+import { useConsult } from './ConsultModal.jsx'
 import insuranceImg from '../image/INSURANCE.png'
 import investmentImg from '../image/INVERSTMENT.png'
 import safeCoverageImg from '../image/SAFECOVERAGE.png'
@@ -19,6 +20,7 @@ const STATS = [
 ]
 
 export default function Hero() {
+  const consult = useConsult()
   return (
     <section id="home" className="relative overflow-hidden pt-10 sm:pt-16">
       {/* 배경 데코 */}
@@ -58,10 +60,10 @@ export default function Hero() {
 
           {/* CTA */}
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href="#contact" className="btn-primary px-7 py-3.5 text-base">
+            <button type="button" onClick={consult.open} className="btn-primary px-7 py-3.5 text-base">
               무료 상담 받기
               <ArrowUpRight size={18} />
-            </a>
+            </button>
             <a href="#services" className="btn-ghost px-7 py-3.5 text-base">
               서비스 둘러보기
             </a>

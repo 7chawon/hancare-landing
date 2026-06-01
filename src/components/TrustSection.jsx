@@ -1,4 +1,5 @@
 import { Star, ArrowUpRight } from './Decorations.jsx'
+import { useConsult } from './ConsultModal.jsx'
 
 const POINTS = [
   { emoji: '🏆', title: '검증된 전문성', desc: '삼성화재 공식 파트너 설계사' },
@@ -7,6 +8,7 @@ const POINTS = [
 ]
 
 export default function TrustSection() {
+  const consult = useConsult()
   return (
     <section id="trust" className="container-page mt-24 sm:mt-32">
       <div className="relative overflow-hidden rounded-[28px] border border-brand-100 bg-white p-7 shadow-card sm:p-14">
@@ -49,10 +51,10 @@ export default function TrustSection() {
 
         {/* CTA */}
         <div id="contact" className="relative mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href="tel:1881-8559" className="btn-primary px-7 py-3.5 text-base">
+          <button type="button" onClick={consult.open} className="btn-primary px-7 py-3.5 text-base">
             지금 무료 상담 받기
             <ArrowUpRight size={18} />
-          </a>
+          </button>
           <span className="text-sm font-semibold text-slate-600">
             전화 상담 <span className="text-brand-700">1881-8559</span>
           </span>
