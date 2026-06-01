@@ -1,0 +1,34 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="treeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6EE7B7" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+    <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#92400E" />
+      <stop offset="100%" stop-color="#78350F" />
+    </linearGradient>
+    <filter id="treeShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+      <feOffset dx="0" dy="4" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="60" cy="60" r="50" fill="#F9FAFB" />
+  <g filter="url(#treeShadow)">
+    <rect x="55" y="60" width="10" height="20" rx="2" fill="url(#trunkGradient)" />
+  </g>
+  <g filter="url(#treeShadow)">
+    <circle cx="60" cy="55" r="18" fill="url(#treeGradient)" opacity="0.7" />
+    <circle cx="48" cy="60" r="14" fill="url(#treeGradient)" opacity="0.8" />
+    <circle cx="72" cy="60" r="14" fill="url(#treeGradient)" opacity="0.8" />
+    <circle cx="60" cy="45" r="15" fill="url(#treeGradient)" />
+  </g>
+  <ellipse cx="60" cy="55" rx="20" ry="20" fill="#34D399" opacity="0.12" filter="blur(10px)" />
+</svg>

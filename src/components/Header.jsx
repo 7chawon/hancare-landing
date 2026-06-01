@@ -1,0 +1,99 @@
+import { useEffect, useState } from 'react'
+import { ArrowUpRight } from './Decorations.jsx'
+import hansolLogo from '../image/HANSOL_LOGO.png'
+
+const NAV = [
+  { label: '홈', href: '#home' },
+  { label: '보험상담', href: '#services' },
+  { label: '회사소개', href: '#trust' },
+  { label: '설계사채용', href: '#footer' },
+]
+
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white/85 shadow-soft backdrop-blur-md' : 'bg-transparent'
+      }`}
+    >
+      <div className="container-page flex h-16 items-center justify-between sm:h-20">
+        {/* 로고 */}
+        <a href="#home" className="flex items-center gap-2.5">
+          <img
+            src={hansolLogo}
+            alt="한솔"
+            className="h-8 w-auto sm:h-9"
+          />
+          <span className="text-base font-extrabold tracking-tight sm:text-lg">
+            삼성화재<span className="text-brand"> 금융파트너스</span>
+          </span>
+        </a>
+
+        {/* 데스크탑 메뉴 */}
+        <nav className="hidden items-center gap-8 md:flex">
+          {NAV.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-sm font-semibold text-slate-600 transition hover:text-brand"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="hidden md:block">
+          <a href="#contact" className="btn-primary">
+            상담 신청
+            <ArrowUpRight />
+          </a>
+        </div>
+
+        {/* 모바일 토글 */}
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 md:hidden"
+          aria-label="메뉴 열기"
+          aria-expanded={open}
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            {open ? <path d="M6 6l12 12M18 6 6 18" /> : <><path d="M4 7h16" /><path d="M4 12h16" /><path d="M4 17h16" /></>}
+          </svg>
+        </button>
+      </div>
+
+      {/* 모바일 메뉴 */}
+      {open && (
+        <div className="border-t border-slate-100 bg-white/95 backdrop-blur md:hidden">
+          <nav className="container-page flex flex-col gap-1 py-4">
+            {NAV.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="rounded-xl px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-brand-50 hover:text-brand"
+              >
+                {item.label}
+              </a>
+            ))}
+            <a href="#contact" onClick={() => setOpen(false)} className="btn-primary mt-2 justify-center">
+              상담 신청
+              <ArrowUpRight />
+            </a>
+          </nav>
+        </div>
+      )}
+    </header>
+  )
+}

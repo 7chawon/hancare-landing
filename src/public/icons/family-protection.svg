@@ -1,0 +1,40 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="familyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6EE7B7" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+    <linearGradient id="heartFamilyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+    <filter id="familyShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+      <feOffset dx="0" dy="4" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="60" cy="60" r="50" fill="#F9FAFB" />
+  <g filter="url(#familyShadow)">
+    <circle cx="50" cy="45" r="8" fill="url(#familyGradient)" />
+    <path d="M50 53 L46 68 M50 53 L54 68 M50 57 L44 57 M50 57 L56 57" stroke="url(#familyGradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <g filter="url(#familyShadow)">
+    <circle cx="70" cy="48" r="7" fill="url(#familyGradient)" opacity="0.9" />
+    <path d="M70 55 L67 68 M70 55 L73 68 M70 59 L65 59 M70 59 L75 59" stroke="url(#familyGradient)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
+  </g>
+  <g filter="url(#familyShadow)">
+    <circle cx="60" cy="58" r="5" fill="url(#familyGradient)" opacity="0.8" />
+    <path d="M60 63 L58 72 M60 63 L62 72 M60 66 L56 66 M60 66 L64 66" stroke="url(#familyGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+  </g>
+  <g filter="url(#familyShadow)">
+    <path d="M60 75 C60 75 50 70 50 65 C50 62 52 60 54 60 C56 60 58 62 58 62 C58 62 60 60 62 60 C64 60 66 62 66 65 C66 70 60 75 60 75 Z" fill="url(#heartFamilyGradient)" opacity="0.6" />
+  </g>
+  <ellipse cx="58" cy="55" rx="20" ry="20" fill="#34D399" opacity="0.12" filter="blur(10px)" />
+</svg>

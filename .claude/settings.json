@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"c:\\Users\\마케팅\\Desktop\\조승현\\JSH\\브랜딩\\hancare_\\.claude\\auto-commit.cjs\""
+          }
+        ]
+      }
+    ]
+  }
+}

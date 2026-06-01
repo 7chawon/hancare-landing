@@ -1,0 +1,35 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="customShieldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6EE7B7" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+    <linearGradient id="customDocGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F3F4F6" />
+      <stop offset="100%" stop-color="#E5E7EB" />
+    </linearGradient>
+    <filter id="customShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+      <feOffset dx="0" dy="4" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="60" cy="60" r="50" fill="#F9FAFB" />
+  <g filter="url(#customShadow)">
+    <rect x="35" y="30" width="40" height="50" rx="3" fill="url(#customDocGradient)" />
+    <rect x="42" y="38" width="26" height="2.5" rx="1.25" fill="#D1D5DB" />
+    <rect x="42" y="45" width="22" height="2.5" rx="1.25" fill="#D1D5DB" />
+    <rect x="42" y="52" width="20" height="2.5" rx="1.25" fill="#D1D5DB" />
+  </g>
+  <g filter="url(#customShadow)">
+    <path d="M75 45C75 45 70 42 60 42C50 42 45 45 45 45C45 45 44 55 45 62C46 69 52 76 60 76C68 76 74 69 75 62C76 55 75 45 75 45Z" fill="url(#customShieldGradient)" />
+    <path d="M53 58L57 62L67 50" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <ellipse cx="50" cy="50" rx="15" ry="15" fill="#34D399" opacity="0.12" filter="blur(8px)" />
+</svg>
