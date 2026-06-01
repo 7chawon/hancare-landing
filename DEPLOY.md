@@ -2,6 +2,13 @@
 
 React + Vite 정적 사이트. 아래 순서대로 하면 **공개 URL**이 생성되고, 이후 push할 때마다 자동 재배포됩니다.
 
+## 🔗 라이브 URL
+
+- 배포 완료: https://hancare-landing-a9oh72l5u-hancare.vercel.app
+- 대표(고정) 주소는 Vercel 프로젝트 **Settings → Domains** 에서 확인 (`*.vercel.app`)
+- GitHub: https://github.com/7chawon/hancare-landing
+- Vercel Team: `hancare` / Project: `hancare-landing`
+
 ## 자동 커밋 / 자동 push (이미 설정됨)
 
 - `.claude/auto-commit.cjs` + `.claude/settings.json` 의 PostToolUse 훅으로,
