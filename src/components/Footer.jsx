@@ -55,6 +55,7 @@ export default function Footer() {
               <Link to="/" className="transition hover:text-brand">홈</Link>
               <Link to="/#services" className="transition hover:text-brand">보험상담</Link>
               <Link to="/about" className="transition hover:text-brand">회사소개</Link>
+              <Link to="/faq" className="transition hover:text-brand">자주 묻는 질문</Link>
               <Link to="/recruit" className="transition hover:text-brand">설계사채용</Link>
             </nav>
             <div className="flex gap-2.5">
