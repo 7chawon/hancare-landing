@@ -6,13 +6,17 @@ import taxConsulting from '../public/icons/tax-consulting.svg'
 import realEstate from '../public/icons/real-estate.svg'
 import familyProtection from '../public/icons/family-protection.svg'
 
+// /src/image/service-*.png 가 있으면 우선 사용, 없으면 기존 SVG 폴백
+const serviceIcons = import.meta.glob('../image/service-*.png', { eager: true, import: 'default' })
+const iconUrl = (name, fallback) => serviceIcons[`../image/${name}`] || fallback
+
 const ITEMS = [
-  { src: insurancePlan, title: '보험설계', desc: '맞춤 보장 플랜', color: 'from-brand-100 to-lime-soft' },
-  { src: assetManagement, title: '자산관리', desc: '체계적인 포트폴리오', color: 'from-lime-soft to-brand-100' },
-  { src: retirementPlan, title: '노후준비', desc: '여유로운 은퇴 설계', color: 'from-brand-100 to-emerald-50' },
-  { src: taxConsulting, title: '세무컨설팅', desc: '절세 전략 컨설팅', color: 'from-emerald-50 to-lime-soft' },
-  { src: realEstate, title: '부동산', desc: '자산 기반 부동산 자문', color: 'from-lime-soft to-brand-100' },
-  { src: familyProtection, title: '가족보장', desc: '온 가족 케어 플랜', color: 'from-brand-100 to-lime-soft' },
+  { png: 'service-insurance.png', src: insurancePlan, title: '보험설계', desc: '맞춤 보장 플랜', color: 'from-brand-100 to-lime-soft' },
+  { png: 'service-asset.png', src: assetManagement, title: '자산관리', desc: '체계적인 포트폴리오', color: 'from-lime-soft to-brand-100' },
+  { png: 'service-retirement.png', src: retirementPlan, title: '노후준비', desc: '여유로운 은퇴 설계', color: 'from-brand-100 to-emerald-50' },
+  { png: 'service-tax.png', src: taxConsulting, title: '세무컨설팅', desc: '절세 전략 컨설팅', color: 'from-emerald-50 to-lime-soft' },
+  { png: 'service-realestate.png', src: realEstate, title: '부동산', desc: '자산 기반 부동산 자문', color: 'from-lime-soft to-brand-100' },
+  { png: 'service-family.png', src: familyProtection, title: '가족보장', desc: '온 가족 케어 플랜', color: 'from-brand-100 to-lime-soft' },
 ]
 
 export default function ServiceSlider() {
