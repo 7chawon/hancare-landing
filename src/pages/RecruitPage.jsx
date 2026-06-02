@@ -1,151 +1,220 @@
+import { useState } from 'react'
 import { Star, ArrowUpRight } from '../components/Decorations.jsx'
 import { useConsult } from '../components/ConsultModal.jsx'
 
-const BENEFITS = [
-  { emoji: '💰', title: '업계 최고 수수료', desc: '노력한 만큼 정직하게 보상받습니다.' },
-  { emoji: '📚', title: '체계적인 교육', desc: '신입도 전문가로 성장하는 트레이닝.' },
-  { emoji: '🤝', title: '든든한 영업 지원', desc: 'DB·마케팅·전산 시스템 풀 지원.' },
-  { emoji: '⏰', title: '자유로운 근무', desc: '내 시간을 스스로 설계하는 워라밸.' },
-]
-
-const QUALIFY = ['학력·경력 무관, 도전정신이 있는 분', '고객과의 신뢰를 소중히 여기는 분', '꾸준히 성장하고 싶은 분']
-const PREFER = ['보험·금융 업계 경력자', '영업·상담 경험 보유자', '재무설계(AFPK·CFP) 자격 보유자']
-
-const STEPS = [
-  { n: '01', title: '입사 지원', desc: '간단한 정보 입력으로 지원' },
-  { n: '02', title: '상담 면접', desc: '편안한 분위기의 1:1 면접' },
-  { n: '03', title: '교육 수료', desc: '체계적인 온보딩 교육' },
-  { n: '04', title: '활동 시작', desc: '전문 설계사로 커리어 시작' },
+/* 소메뉴(탭) + 탭별 슬라이드(캐러셀) 데이터
+ * 이미지 자리는 비워두었습니다. /src/image/ 에 아래 파일명으로 저장하면 표시됩니다. */
+const TABS = [
+  {
+    key: 'about',
+    label: '파트너스 알아보기',
+    slides: [
+      {
+        title: '파트너스 수익 사례 모음.zip',
+        desc: '한케어 파트너스가 가장 많이 받는 질문, "정말 벌 수 있나요?" 실제 활동 중인 설계사들의 수익 구조와 사례를 한눈에 모았습니다.',
+        image: 'recruit-about-1.png',
+        bg: 'from-violet-200 to-violet-100',
+      },
+      {
+        title: '파트너스는 이런 일을 해요',
+        desc: '고객의 보장을 분석하고 맞춤 설계를 제안하는 금융 전문가. 한케어 파트너스의 하루 일과를 소개합니다.',
+        image: 'recruit-about-2.png',
+        bg: 'from-brand-100 to-lime-soft',
+      },
+    ],
+  },
+  {
+    key: 'guide',
+    label: '지원 & 교육',
+    slides: [
+      {
+        title: '신입도 전문가로, 체계적인 교육',
+        desc: '보험·금융 지식이 없어도 괜찮아요. 입사 후 단계별 온보딩 교육과 1:1 멘토링으로 전문가로 성장합니다.',
+        image: 'recruit-guide-1.png',
+        bg: 'from-sky-200 to-sky-100',
+      },
+      {
+        title: '지원부터 활동까지, 단 4단계',
+        desc: '입사 지원 → 상담 면접 → 교육 수료 → 활동 시작. 복잡한 절차 없이 새로운 커리어를 시작하세요.',
+        image: 'recruit-guide-2.png',
+        bg: 'from-brand-100 to-emerald-50',
+      },
+    ],
+  },
+  {
+    key: 'review',
+    label: '합격 후기',
+    slides: [
+      {
+        title: '먼저 시작한 파트너스의 이야기',
+        desc: '"육아와 병행하면서도 안정적인 수입을 얻고 있어요." 실제 한케어 파트너스들의 생생한 후기를 확인하세요.',
+        image: 'recruit-review-1.png',
+        bg: 'from-amber-200 to-amber-100',
+      },
+      {
+        title: '한케어를 선택한 이유',
+        desc: '업계 최고 수준의 수수료와 든든한 영업 지원. 파트너스들이 한케어에 정착한 이유를 들어보세요.',
+        image: 'recruit-review-2.png',
+        bg: 'from-rose-200 to-rose-100',
+      },
+    ],
+  },
 ]
 
 export default function RecruitPage() {
   const consult = useConsult()
+  const [tab, setTab] = useState(0)
+  const [slide, setSlide] = useState(0)
+
+  const current = TABS[tab]
+  const data = current.slides[slide]
+  const slideCount = current.slides.length
+
+  const changeTab = (i) => {
+    setTab(i)
+    setSlide(0)
+  }
+  const move = (dir) => setSlide((s) => (s + dir + slideCount) % slideCount)
+
   return (
     <div className="pt-10 sm:pt-16">
       {/* 페이지 헤더 */}
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-brand-100/60 blur-3xl" />
-          <Star className="absolute left-[12%] top-24 animate-twinkle text-lime-point" size={24} />
-          <Star className="absolute right-[10%] top-16 animate-twinkle text-brand-200" size={18} />
+          <Star className="absolute left-[12%] top-16 animate-twinkle text-lime-point" size={22} />
+          <Star className="absolute right-[12%] top-24 animate-twinkle text-brand-200" size={16} />
         </div>
         <div className="container-page text-center">
-          <span className="chip">RECRUIT</span>
-          <h1 className="mx-auto mt-4 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-            당신의 가능성을 펼칠 곳,
-            <br />
-            <span className="relative inline-block">
-              <span className="relative z-10 text-brand">한케어 금융파트너스</span>
-              <span className="absolute -bottom-1 left-0 -z-0 h-3.5 w-full rounded-full bg-lime-point/60" />
-            </span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base text-slate-500 sm:text-lg">
-            정직한 보상, 체계적인 교육, 든든한 지원. 한케어에서 금융 전문가로 성장하세요.
+          <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl">설계사 채용</h1>
+          <p className="mt-3 text-base text-slate-500 sm:text-lg">
+            한케어 파트너스에 대한 모든 정보
           </p>
-          <div className="mt-8">
-            <button type="button" onClick={consult.open} className="btn-primary px-7 py-3.5 text-base">
-              지금 입사 지원하기
-              <ArrowUpRight size={18} />
-            </button>
+        </div>
+      </section>
+
+      {/* 소메뉴 탭 */}
+      <section className="container-page mt-10">
+        <div className="flex flex-wrap justify-center gap-2.5">
+          {TABS.map((t, i) => {
+            const active = tab === i
+            return (
+              <button
+                key={t.key}
+                type="button"
+                onClick={() => changeTab(i)}
+                className={`rounded-full border px-5 py-2.5 text-sm font-semibold transition ${
+                  active
+                    ? 'border-brand bg-brand text-white shadow-glow'
+                    : 'border-slate-200 bg-white text-slate-600 hover:border-brand-200 hover:text-brand'
+                }`}
+              >
+                {t.label}
+              </button>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* 탭 콘텐츠 (창 안에서 바뀜) */}
+      <section className="container-page mt-12">
+        <div className="grid items-center gap-8 md:grid-cols-2">
+          {/* 좌: 텍스트 + 캐러셀 컨트롤 */}
+          <div>
+            <span className="chip">{current.label}</span>
+            <h2 className="mt-4 text-2xl font-extrabold leading-snug tracking-tight sm:text-3xl">
+              {data.title}
+            </h2>
+            <p className="mt-4 max-w-md text-slate-500">{data.desc}</p>
+
+            {slideCount > 1 && (
+              <div className="mt-8 flex items-center gap-3">
+                <CarouselButton dir="left" onClick={() => move(-1)} />
+                <CarouselButton dir="right" onClick={() => move(1)} />
+                <div className="ml-1 flex gap-1.5">
+                  {current.slides.map((_, i) => (
+                    <span
+                      key={i}
+                      className={`h-1.5 rounded-full transition-all ${
+                        i === slide ? 'w-6 bg-brand' : 'w-1.5 bg-brand-200'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
+
+          {/* 우: 이미지 자리 */}
+          <ImageSlot name={data.image} bg={data.bg} />
         </div>
       </section>
 
-      {/* 왜 한케어인가 */}
-      <section className="container-page mt-16 sm:mt-24">
-        <div className="text-center">
-          <span className="chip">WHY HANCARE</span>
-          <h2 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl">
-            한케어에서 일하면 <span className="text-brand">다릅니다</span>
-          </h2>
-        </div>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {BENEFITS.map((b) => (
-            <div
-              key={b.title}
-              className="rounded-card border border-slate-100 bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-glow"
-            >
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-2xl">
-                {b.emoji}
-              </span>
-              <h3 className="mt-4 text-lg font-bold">{b.title}</h3>
-              <p className="mt-1 text-sm text-slate-500">{b.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 지원 자격 / 우대사항 */}
-      <section className="container-page mt-16 sm:mt-24">
-        <div className="grid gap-5 md:grid-cols-2">
-          <QualifyCard title="이런 분을 찾아요" items={QUALIFY} featured />
-          <QualifyCard title="이런 분이면 더 좋아요" items={PREFER} />
-        </div>
-      </section>
-
-      {/* 채용 절차 */}
-      <section className="container-page mt-16 sm:mt-24">
-        <div className="text-center">
-          <span className="chip">PROCESS</span>
-          <h2 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl">
-            간단한 <span className="text-brand">4단계</span> 채용 절차
-          </h2>
-        </div>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {STEPS.map((s) => (
-            <div key={s.n} className="relative rounded-card border border-slate-100 bg-white p-6 shadow-card">
-              <span className="text-3xl font-extrabold text-brand-200">{s.n}</span>
-              <h3 className="mt-2 text-lg font-bold">{s.title}</h3>
-              <p className="mt-1 text-sm text-slate-500">{s.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="container-page mt-16 sm:mt-24">
-        <div className="relative overflow-hidden rounded-[28px] bg-brand p-8 text-center text-white shadow-glow sm:p-12">
-          <Star className="absolute left-8 top-8 animate-twinkle text-lime-point" size={20} />
-          <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
-            새로운 커리어, 지금 시작하세요
-          </h2>
-          <p className="mt-2 text-white/85">간단한 정보만 남기면 채용 담당자가 연락드립니다.</p>
-          <div className="mt-6">
-            <button
-              type="button"
-              onClick={consult.open}
-              className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-bold text-brand-700 transition hover:bg-lime-soft"
-            >
-              입사 지원하기
-              <ArrowUpRight size={18} />
-            </button>
+      {/* 하단 프로모션 배너 */}
+      <section className="container-page mt-16 sm:mt-20">
+        <div className="flex flex-col items-center gap-5 overflow-hidden rounded-[28px] bg-brand-50/70 p-6 text-center sm:flex-row sm:p-8 sm:text-left">
+          {/* 배너 캐릭터 이미지 자리 */}
+          <BannerImageSlot name="recruit-banner.png" />
+          <div className="flex-1">
+            <p className="text-sm font-bold text-brand-700">[1+1 찬스] 한케어 스타터팩!</p>
+            <p className="mt-1 text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">
+              교육비 + 활동 지원금 지급!
+            </p>
           </div>
+          <button
+            type="button"
+            onClick={consult.open}
+            className="btn-primary shrink-0 px-7 py-3.5 text-base"
+          >
+            지금 지원하기
+            <ArrowUpRight size={18} />
+          </button>
         </div>
       </section>
     </div>
   )
 }
 
-function QualifyCard({ title, items, featured }) {
+/* ---- 캐러셀 화살표 ---- */
+function CarouselButton({ dir, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={dir === 'left' ? '이전' : '다음'}
+      className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 shadow-card transition hover:border-brand hover:bg-brand hover:text-white"
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+        {dir === 'left' ? <path d="M15 6 9 12l6 6" /> : <path d="M9 6l6 6-6 6" />}
+      </svg>
+    </button>
+  )
+}
+
+/* ---- 메인 이미지 자리 (우측 카드) ---- */
+function ImageSlot({ name, bg }) {
   return (
     <div
-      className={`rounded-card p-8 shadow-card ${
-        featured ? 'bg-brand-50/70 border border-brand-100' : 'bg-white border border-slate-100'
-      }`}
+      className={`relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-[24px] bg-gradient-to-br ${bg} shadow-card`}
     >
-      <h3 className="text-xl font-extrabold">{title}</h3>
-      <ul className="mt-5 space-y-3">
-        {items.map((it) => (
-          <li key={it} className="flex items-start gap-2.5 text-sm font-medium text-slate-700">
-            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand text-white">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 13l4 4L19 7" />
-              </svg>
-            </span>
-            {it}
-          </li>
-        ))}
-      </ul>
+      <div className="flex flex-col items-center gap-2 rounded-2xl border-2 border-dashed border-white/70 bg-white/40 px-5 py-4 text-center backdrop-blur-sm">
+        <span className="text-2xl">🖼️</span>
+        <span className="text-[11px] font-semibold text-slate-700">
+          이미지 자리
+          <br />
+          <code className="text-[10px]">/src/image/{name}</code>
+        </span>
+      </div>
+    </div>
+  )
+}
+
+/* ---- 배너 이미지 자리 (캐릭터) ---- */
+function BannerImageSlot({ name }) {
+  return (
+    <div className="flex h-24 w-24 shrink-0 flex-col items-center justify-center gap-1 rounded-2xl border-2 border-dashed border-brand-200 bg-white/70 text-center">
+      <span className="text-xl">🦁</span>
+      <code className="px-1 text-[9px] font-semibold text-brand-700/70">{name}</code>
     </div>
   )
 }
