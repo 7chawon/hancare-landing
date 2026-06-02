@@ -56,7 +56,7 @@ export default function ServiceSlider() {
               className={`flex aspect-square items-center justify-center rounded-card bg-gradient-to-br ${item.color} shadow-card transition group-hover:-translate-y-1.5 group-hover:shadow-glow`}
             >
               <img
-                src={item.src}
+                src={iconUrl(item.png, item.src)}
                 alt={item.title}
                 className="h-24 w-24 drop-shadow-sm transition group-hover:scale-110 sm:h-32 sm:w-32"
                 loading="lazy"
