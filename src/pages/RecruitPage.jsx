@@ -6,7 +6,7 @@ import { TAB_ORDER, TAB_LABELS, getByTab, img } from '../data/recruitContent.js'
 import bannerImg from '../image/recruit-banner.png'
 
 export default function RecruitPage() {
-  const consult = useConsult()
+  const consult = useRecruitApply()
   const [tab, setTab] = useState(0)
   const [slide, setSlide] = useState(0)
 
