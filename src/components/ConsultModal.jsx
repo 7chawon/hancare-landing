@@ -431,6 +431,96 @@ function Field({ label, required, children }) {
   )
 }
 
+/* 약관 전체 동의 + 개별 동의 (펼쳐보기) */
+function ConsentBlock({ consents, setConsents }) {
+  const [openKey, setOpenKey] = useState(null)
+  const allChecked = CONSENTS.every((c) => consents[c.key])
+
+  const toggleAll = () => {
+    const next = !allChecked
+    setConsents(Object.fromEntries(CONSENTS.map((c) => [c.key, next])))
+  }
+  const toggleOne = (key) => setConsents({ ...consents, [key]: !consents[key] })
+
+  return (
+    <div className="overflow-hidden rounded-2xl border border-slate-200">
+      {/* 전체 동의 */}
+      <button
+        type="button"
+        onClick={toggleAll}
+        className="flex w-full items-center gap-2.5 bg-brand-50/70 px-4 py-3.5 text-left"
+      >
+        <CheckBox checked={allChecked} />
+        <span className="text-sm font-bold text-slate-900">약관 전체 동의</span>
+      </button>
+
+      <div className="divide-y divide-slate-100">
+        {CONSENTS.map((c) => {
+          const open = openKey === c.key
+          return (
+            <div key={c.key} className="px-4">
+              <div className="flex items-center gap-2.5 py-3">
+                <button
+                  type="button"
+                  onClick={() => toggleOne(c.key)}
+                  className="flex flex-1 items-center gap-2.5 text-left"
+                >
+                  <CheckBox checked={consents[c.key]} small />
+                  <span className="text-xs leading-snug text-slate-600">
+                    <b className={c.required ? 'text-brand-700' : 'text-slate-400'}>
+                      [{c.required ? '필수' : '선택'}]
+                    </b>{' '}
+                    {c.label}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setOpenKey(open ? null : c.key)}
+                  aria-label="약관 보기"
+                  className="shrink-0 p-1 text-slate-300 transition hover:text-slate-600"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`transition ${open ? 'rotate-180' : ''}`}
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+              </div>
+              {open && (
+                <div className="mb-3 max-h-40 overflow-y-auto whitespace-pre-line rounded-xl bg-slate-50 p-3 text-[11px] leading-relaxed text-slate-500">
+                  {c.body}
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function CheckBox({ checked, small }) {
+  return (
+    <span
+      className={`flex shrink-0 items-center justify-center rounded-full border-2 transition ${
+        small ? 'h-5 w-5' : 'h-6 w-6'
+      } ${checked ? 'border-brand bg-brand text-white' : 'border-slate-300 bg-white text-transparent'}`}
+    >
+      <svg width={small ? 11 : 13} height={small ? 11 : 13} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M5 13l4 4L19 7" />
+      </svg>
+    </span>
+  )
+}
+
 /* ------------------------------------------------------------------ *
  * 완료 화면
  * ------------------------------------------------------------------ */
