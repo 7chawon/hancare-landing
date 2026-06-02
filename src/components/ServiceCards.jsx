@@ -59,14 +59,14 @@ export default function ServiceCards() {
             >
               <div className="flex items-center justify-between">
                 <span
-                  className={`flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl ${
-                    card.featured ? 'bg-white/15' : 'bg-brand-50'
+                  className={`flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl ${
+                    card.featured ? 'bg-white' : 'bg-brand-50'
                   }`}
                 >
                   {iconUrl(card.icon) ? (
-                    <img src={iconUrl(card.icon)} alt={card.title} className="h-8 w-8 object-contain" />
+                    <img src={iconUrl(card.icon)} alt={card.title} className="h-12 w-12 object-contain" />
                   ) : (
-                    <span className="text-2xl">{card.emoji}</span>
+                    <span className="text-3xl">{card.emoji}</span>
                   )}
                 </span>
                 <span
