@@ -150,7 +150,7 @@ function ConsultModal({ open, onClose }) {
     if (!open) return
     setStep(0)
     setAnswers({})
-    setForm({ name: '', phone: '', memo: '', agree: false })
+    setForm({ name: '', phone: '', memo: '', consents: emptyConsents() })
     setDone(false)
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
