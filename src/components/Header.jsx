@@ -81,14 +81,14 @@ export default function Header() {
         <div className="border-t border-slate-100 bg-white/95 backdrop-blur md:hidden">
           <nav className="container-page flex flex-col gap-1 py-4">
             {NAV.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
+              <Link
+                key={item.to}
+                to={item.to}
                 onClick={() => setOpen(false)}
                 className="rounded-xl px-3 py-3 text-sm font-semibold text-slate-700 transition hover:bg-brand-50 hover:text-brand"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <button
               type="button"
