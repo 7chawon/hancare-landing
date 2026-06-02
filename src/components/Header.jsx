@@ -57,9 +57,20 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <button type="button" onClick={consult.open} className="btn-primary">
-            상담 신청
-            <ArrowUpRight />
+          <button
+            type="button"
+            onClick={consult.open}
+            aria-label="상담 신청"
+            className="group flex h-12 origin-center animate-ringbell items-center gap-0 rounded-full bg-brand px-3.5 text-white shadow-glow transition-all duration-300 hover:animate-none hover:gap-2 hover:bg-brand-600 hover:px-5"
+          >
+            {/* 닫혀 있을 땐 아이콘만 (클릭 유도) */}
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M21 15.5v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.1 2.8 2 2 0 0 1 3.1.6h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L7.1 8.9a16 16 0 0 0 6 6l1.8-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" />
+            </svg>
+            {/* 호버 시 가로로 펼쳐지며 등장 */}
+            <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-all duration-300 group-hover:max-w-[80px] group-hover:opacity-100">
+              상담 신청
+            </span>
           </button>
         </div>
 
