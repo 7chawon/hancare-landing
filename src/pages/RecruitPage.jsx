@@ -101,7 +101,7 @@ export default function RecruitPage() {
           {/* 우: 이미지 (누르면 상세로 이동) */}
           <Link
             to={`/recruit/${data.slug}`}
-            className={`group relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-[24px] bg-gradient-to-br ${data.bg} shadow-card transition hover:shadow-glow`}
+            className={`group relative flex aspect-[3/2] w-full items-center justify-center overflow-hidden rounded-[24px] bg-gradient-to-br ${data.bg} shadow-card transition hover:shadow-glow`}
           >
             <img
               src={img(data.image)}
