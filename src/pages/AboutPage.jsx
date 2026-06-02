@@ -36,7 +36,7 @@ export default function AboutPage() {
             </span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base text-slate-500 sm:text-lg">
-            한케어는 삼성화재 공식 금융파트너스로서, 보험설계부터 자산관리·노후준비·세무까지
+            한케어는 고객의 평생 금융 파트너로서, 보험설계부터 자산관리·노후준비·세무까지
             고객의 인생 전 주기를 함께 설계합니다.
           </p>
         </div>
