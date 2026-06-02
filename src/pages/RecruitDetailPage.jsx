@@ -148,7 +148,7 @@ function ShortsEmbed({ shortsId, title }) {
 /* 관련 카드 썸네일 */
 function CardThumb({ name, bg }) {
   return (
-    <div className={`aspect-[4/3] overflow-hidden bg-gradient-to-br ${bg}`}>
+    <div className={`aspect-[3/2] overflow-hidden bg-gradient-to-br ${bg}`}>
       <img
         src={img(name)}
         alt=""
