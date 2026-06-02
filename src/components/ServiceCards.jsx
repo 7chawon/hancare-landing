@@ -50,11 +50,6 @@ export default function ServiceCards() {
                   : 'border border-slate-100 bg-white text-slate-900 shadow-card'
               }`}
             >
-              {card.featured && (
-                <span className="absolute right-5 top-5 rounded-full bg-lime-point px-3 py-1 text-[11px] font-bold text-brand-700">
-                  인기
-                </span>
-              )}
               <div className="flex items-center justify-between">
                 <span
                   className={`flex h-12 w-12 items-center justify-center rounded-2xl text-2xl ${
