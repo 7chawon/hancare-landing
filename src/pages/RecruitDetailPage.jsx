@@ -38,14 +38,21 @@ export default function RecruitDetailPage() {
 
       {/* 히어로 */}
       <section className="container-page mt-5">
-        <div className={`relative overflow-hidden rounded-[28px] bg-gradient-to-br ${article.bg} p-8 sm:p-12`}>
-          <span className="inline-flex rounded-full bg-white/70 px-3 py-1 text-xs font-bold text-brand-700">
-            {TAB_LABELS[article.tab]}
-          </span>
-          <h1 className="mt-4 max-w-2xl text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
-            {article.title}
-          </h1>
-          <p className="mt-3 max-w-xl text-sm text-slate-700 sm:text-base">{article.summary}</p>
+        <div className={`grid items-center gap-8 overflow-hidden rounded-[28px] bg-gradient-to-br ${article.bg} p-8 sm:p-12 md:grid-cols-2`}>
+          <div>
+            <span className="inline-flex rounded-full bg-white/70 px-3 py-1 text-xs font-bold text-brand-700">
+              {TAB_LABELS[article.tab]}
+            </span>
+            <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+              {article.title}
+            </h1>
+            <p className="mt-3 text-sm text-slate-700 sm:text-base">{article.summary}</p>
+          </div>
+          <img
+            src={img(article.image)}
+            alt={article.title}
+            className="mx-auto w-full max-w-sm rounded-[20px] object-cover shadow-card"
+          />
         </div>
       </section>
 
