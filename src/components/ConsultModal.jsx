@@ -410,18 +410,10 @@ function FormView({ form, setForm, answers, onSubmit }) {
           />
         </Field>
 
-        <label className="flex cursor-pointer items-start gap-2.5 rounded-2xl bg-brand-50/60 p-3.5">
-          <input
-            type="checkbox"
-            checked={form.agree}
-            onChange={set('agree')}
-            className="mt-0.5 h-5 w-5 shrink-0 accent-brand"
-          />
-          <span className="text-xs leading-relaxed text-slate-600">
-            <b className="text-slate-800">[필수]</b> 개인정보 수집·이용에 동의합니다. 수집한 정보는
-            상담 목적으로만 사용되며 상담 완료 후 파기됩니다.
-          </span>
-        </label>
+        <ConsentBlock
+          consents={form.consents}
+          setConsents={(next) => setForm((f) => ({ ...f, consents: next }))}
+        />
       </form>
     </div>
   )
