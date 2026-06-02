@@ -34,7 +34,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-500">
-              삼성화재 공식 금융파트너스. 보험설계부터 자산관리까지, 고객의 평생 금융 파트너가
+              한케어 금융파트너스. 보험설계부터 자산관리까지, 고객의 평생 금융 파트너가
               되겠습니다.
             </p>
             <dl className="mt-5 space-y-1.5 text-sm text-slate-500">
