@@ -23,15 +23,8 @@ export default function Footer() {
           {/* 회사정보 */}
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-brand text-white">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 3 4 7v6c0 4.4 3.4 7.4 8 8 4.6-.6 8-3.6 8-8V7l-8-4Z" fill="currentColor" opacity="0.9" />
-                  <path d="M9 12l2 2 4-4" stroke="#A3E635" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-              <span className="text-lg font-extrabold">
-                한케어<span className="text-brand"> 금융파트너스</span>
-              </span>
+              <img src={hansolLogo} alt="한케어" className="h-9 w-auto" />
+              <span className="text-lg font-extrabold text-slate-900">금융파트너스</span>
             </div>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-500">
               한케어 금융파트너스. 보험설계부터 자산관리까지,
