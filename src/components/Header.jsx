@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { ArrowUpRight } from './Decorations.jsx'
 import { useConsult } from './ConsultModal.jsx'
 import hansolLogo from '../image/HANSOL_LOGO.png'
 
 const NAV = [
-  { label: '홈', href: '#home' },
-  { label: '보험상담', href: '#services' },
-  { label: '회사소개', href: '#trust' },
-  { label: '설계사채용', href: '#footer' },
+  { label: '홈', to: '/' },
+  { label: '보험상담', to: '/#services' },
+  { label: '회사소개', to: '/about' },
+  { label: '설계사채용', to: '/recruit' },
 ]
 
 export default function Header() {
