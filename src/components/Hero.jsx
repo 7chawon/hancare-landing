@@ -54,7 +54,7 @@ export default function Hero() {
           <p className="mx-auto mt-6 max-w-2xl text-base text-slate-500 sm:text-lg">
             보험설계부터 자산관리, 노후준비, 세무컨설팅까지.
             <br />
-            <span className="font-semibold text-brand-700">한케어 삼성화재 금융파트너스</span>가
+            <span className="font-semibold text-brand-700">한케어 금융파트너스</span>가
             평생 곁에서 함께합니다.
           </p>
 
