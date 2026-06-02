@@ -67,7 +67,14 @@ export default function ServiceCards() {
                 </span>
               </div>
 
-              <h3 className="mt-5 text-xl font-bold">{card.title}</h3>
+              <h3 className="mt-5 flex items-center gap-2 text-xl font-bold">
+                {card.title}
+                {card.featured && (
+                  <span className="rounded-full bg-lime-point px-2.5 py-0.5 text-[11px] font-bold text-brand-700">
+                    인기
+                  </span>
+                )}
+              </h3>
               <p
                 className={`mt-2 flex-1 text-sm leading-relaxed ${
                   card.featured ? 'text-white/85' : 'text-slate-500'
