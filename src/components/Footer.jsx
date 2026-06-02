@@ -76,7 +76,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-2 border-t border-slate-200/70 pt-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2024 한케어 삼성화재 금융파트너스. All rights reserved.</p>
+          <p>© 2024 한케어 금융파트너스. All rights reserved.</p>
           <p className="flex gap-4">
             <a href="#" className="transition hover:text-brand-700">이용약관</a>
             <a href="#" className="transition hover:text-brand-700">개인정보처리방침</a>
