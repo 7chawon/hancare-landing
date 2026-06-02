@@ -39,7 +39,7 @@ export default function Header() {
             className="h-8 w-auto sm:h-9"
           />
           <span className="text-base font-extrabold tracking-tight sm:text-lg">
-            삼성화재<span className="text-brand"> 금융파트너스</span>
+            한케어<span className="text-brand"> 금융파트너스</span>
           </span>
         </Link>
 
