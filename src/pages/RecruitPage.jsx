@@ -118,10 +118,11 @@ export default function RecruitPage() {
       {/* 하단 프로모션 배너 */}
       <section className="container-page mt-16 sm:mt-20">
         <div className="flex flex-col items-center gap-5 overflow-hidden rounded-[28px] bg-brand-50/70 p-6 text-center sm:flex-row sm:p-8 sm:text-left">
-          <div className="flex h-24 w-24 shrink-0 flex-col items-center justify-center gap-1 rounded-2xl border-2 border-dashed border-brand-200 bg-white/70 text-center">
-            <span className="text-xl">🦁</span>
-            <code className="px-1 text-[9px] font-semibold text-brand-700/70">recruit-banner.png</code>
-          </div>
+          <img
+            src={bannerImg}
+            alt="한케어 스타터팩"
+            className="h-24 w-24 shrink-0 object-contain"
+          />
           <div className="flex-1">
             <p className="text-sm font-bold text-brand-700">[1+1 찬스] 한케어 스타터팩!</p>
             <p className="mt-1 text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">
