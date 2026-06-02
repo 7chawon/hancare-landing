@@ -52,10 +52,10 @@ export default function Footer() {
           {/* SNS + 빠른 메뉴 */}
           <div className="flex flex-col gap-6 md:items-end">
             <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-slate-600 md:justify-end">
-              <a href="#home" className="transition hover:text-brand">홈</a>
-              <a href="#services" className="transition hover:text-brand">보험상담</a>
-              <a href="#trust" className="transition hover:text-brand">회사소개</a>
-              <a href="#footer" className="transition hover:text-brand">설계사채용</a>
+              <Link to="/" className="transition hover:text-brand">홈</Link>
+              <Link to="/#services" className="transition hover:text-brand">보험상담</Link>
+              <Link to="/about" className="transition hover:text-brand">회사소개</Link>
+              <Link to="/recruit" className="transition hover:text-brand">설계사채용</Link>
             </nav>
             <div className="flex gap-2.5">
               {SNS.map((s) => (
