@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowUpRight } from '../components/Decorations.jsx'
 import { useConsult } from '../components/ConsultModal.jsx'
-import { getArticle, getRelated, TAB_LABELS } from '../data/recruitContent.js'
+import { getArticle, getRelated, TAB_LABELS, img } from '../data/recruitContent.js'
 
 export default function RecruitDetailPage() {
   const { slug } = useParams()
