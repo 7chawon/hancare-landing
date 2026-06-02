@@ -31,7 +31,7 @@ export default function Header() {
     >
       <div className="container-page relative flex h-16 items-center justify-between sm:h-20">
         {/* 로고 */}
-        <a href="#home" className="flex items-center gap-2.5">
+        <Link to="/" className="flex items-center gap-2.5">
           <img
             src={hansolLogo}
             alt="한솔"
@@ -40,7 +40,7 @@ export default function Header() {
           <span className="text-base font-extrabold tracking-tight sm:text-lg">
             삼성화재<span className="text-brand"> 금융파트너스</span>
           </span>
-        </a>
+        </Link>
 
         {/* 데스크탑 메뉴 — 페이지 정중앙 고정 */}
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
