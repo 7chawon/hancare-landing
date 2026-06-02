@@ -32,8 +32,8 @@ export default function Hero() {
       </div>
 
       <div className="container-page">
-        {/* 상단 라벨 */}
-        <div className="flex justify-end gap-2">
+        {/* 상단 라벨 — 메인 문구 위 중앙 정렬 */}
+        <div className="flex justify-center gap-2">
           <span className="chip">한케어 금융파트너스</span>
           <span className="chip bg-brand-100">2024 공식 파트너</span>
         </div>
