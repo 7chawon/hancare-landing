@@ -28,7 +28,7 @@ export default function Header() {
         scrolled ? 'bg-white/85 shadow-soft backdrop-blur-md' : 'bg-transparent'
       }`}
     >
-      <div className="container-page flex h-16 items-center justify-between sm:h-20">
+      <div className="container-page relative flex h-16 items-center justify-between sm:h-20">
         {/* 로고 */}
         <a href="#home" className="flex items-center gap-2.5">
           <img
@@ -41,8 +41,8 @@ export default function Header() {
           </span>
         </a>
 
-        {/* 데스크탑 메뉴 */}
-        <nav className="hidden items-center gap-8 md:flex">
+        {/* 데스크탑 메뉴 — 페이지 정중앙 고정 */}
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
           {NAV.map((item) => (
             <a
               key={item.href}
