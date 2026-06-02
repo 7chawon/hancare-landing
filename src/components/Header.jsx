@@ -6,7 +6,6 @@ import hansolLogo from '../image/HANSOL_LOGO.png'
 
 const NAV = [
   { label: '홈', to: '/' },
-  { label: '보험상담', to: '/#services' },
   { label: '회사소개', to: '/about' },
   { label: '자주 묻는 질문', to: '/faq' },
   { label: '설계사채용', to: '/recruit' },
