@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Star, ArrowUpRight } from '../components/Decorations.jsx'
-import { useConsult } from '../components/ConsultModal.jsx'
+import { useRecruitApply } from '../components/ConsultModal.jsx'
 import { TAB_ORDER, TAB_LABELS, getByTab, img } from '../data/recruitContent.js'
 import bannerImg from '../image/recruit-banner.png'
 
