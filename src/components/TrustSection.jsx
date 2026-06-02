@@ -2,7 +2,7 @@ import { Star, ArrowUpRight } from './Decorations.jsx'
 import { useConsult } from './ConsultModal.jsx'
 
 const POINTS = [
-  { emoji: '🏆', title: '검증된 전문성', desc: '삼성화재 공식 파트너 설계사' },
+  { emoji: '🏆', title: '검증된 전문성', desc: '검증된 공식 파트너 설계사' },
   { emoji: '⚡', title: '빠른 상담', desc: '신청 후 24시간 내 연락' },
   { emoji: '💚', title: '평생 케어', desc: '가입부터 청구까지 책임' },
 ]
