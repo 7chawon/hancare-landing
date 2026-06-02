@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import hansolLogo from '../image/HANSOL_LOGO.png'
 import naverLogo from '../image/네이버_AI-05.png'
 import instagramLogo from '../image/Instagram.svg.png'
 
