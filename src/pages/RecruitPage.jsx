@@ -98,20 +98,17 @@ export default function RecruitPage() {
             )}
           </div>
 
-          {/* 우: 이미지 자리 (누르면 상세로 이동) */}
+          {/* 우: 이미지 (누르면 상세로 이동) */}
           <Link
             to={`/recruit/${data.slug}`}
             className={`group relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-[24px] bg-gradient-to-br ${data.bg} shadow-card transition hover:shadow-glow`}
           >
-            <div className="flex flex-col items-center gap-2 rounded-2xl border-2 border-dashed border-white/70 bg-white/40 px-5 py-4 text-center backdrop-blur-sm transition group-hover:scale-105">
-              <span className="text-2xl">🖼️</span>
-              <span className="text-[11px] font-semibold text-slate-700">
-                이미지 자리
-                <br />
-                <code className="text-[10px]">/src/image/{data.image}</code>
-              </span>
-            </div>
-            <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full bg-white/80 px-3 py-1 text-[11px] font-bold text-brand-700 backdrop-blur-sm">
+            <img
+              src={img(data.image)}
+              alt={data.title}
+              className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            />
+            <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full bg-white/85 px-3 py-1 text-[11px] font-bold text-brand-700 backdrop-blur-sm">
               눌러서 보기 <ArrowUpRight size={12} />
             </span>
           </Link>
