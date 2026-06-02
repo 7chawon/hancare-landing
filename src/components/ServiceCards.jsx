@@ -59,11 +59,15 @@ export default function ServiceCards() {
             >
               <div className="flex items-center justify-between">
                 <span
-                  className={`flex h-12 w-12 items-center justify-center rounded-2xl text-2xl ${
+                  className={`flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl ${
                     card.featured ? 'bg-white/15' : 'bg-brand-50'
                   }`}
                 >
-                  {card.emoji}
+                  {iconUrl(card.icon) ? (
+                    <img src={iconUrl(card.icon)} alt={card.title} className="h-8 w-8 object-contain" />
+                  ) : (
+                    <span className="text-2xl">{card.emoji}</span>
+                  )}
                 </span>
                 <span
                   className={`flex h-9 w-9 items-center justify-center rounded-full transition group-hover:rotate-45 ${
