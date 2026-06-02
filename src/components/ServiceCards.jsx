@@ -3,11 +3,16 @@ import coverageAnalysisImg from '../image/CoverageAnalysis.png'
 import assetPlanningImg from '../image/assetplanning.png'
 import afterCareImg from '../image/Aftercare.png'
 
+// /src/image/solution-*.png 상단 아이콘 자동 매핑 (없으면 이모지 폴백)
+const solutionIcons = import.meta.glob('../image/solution-*.png', { eager: true, import: 'default' })
+const iconUrl = (name) => solutionIcons[`../image/${name}`]
+
 const CARDS = [
   {
     title: '보장분석',
     desc: '현재 가입한 보험을 꼼꼼히 진단하고 부족한 보장을 찾아드립니다.',
     emoji: '🔍',
+    icon: 'solution-coverage.png',
     img: coverageAnalysisImg,
     featured: false,
   },
@@ -15,6 +20,7 @@ const CARDS = [
     title: '자산설계',
     desc: '소득과 목표에 맞춘 1:1 맞춤 자산 포트폴리오를 설계합니다.',
     emoji: '💎',
+    icon: 'solution-asset.png',
     img: assetPlanningImg,
     featured: true,
   },
@@ -22,6 +28,7 @@ const CARDS = [
     title: '사후관리',
     desc: '가입 이후에도 정기 점검과 보험금 청구까지 끝까지 책임집니다.',
     emoji: '🤝',
+    icon: 'solution-aftercare.png',
     img: afterCareImg,
     featured: false,
   },
