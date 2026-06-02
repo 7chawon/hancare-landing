@@ -6,6 +6,7 @@ import { ConsultProvider } from './components/ConsultModal.jsx'
 import HomePage from './pages/HomePage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import RecruitPage from './pages/RecruitPage.jsx'
+import FaqPage from './pages/FaqPage.jsx'
 
 // 페이지 이동 시 맨 위로 / 해시(#services 등)가 있으면 해당 섹션으로 스크롤
 function ScrollManager() {
