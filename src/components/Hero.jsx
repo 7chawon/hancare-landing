@@ -22,7 +22,7 @@ const STATS = [
 export default function Hero() {
   const consult = useConsult()
   return (
-    <section id="home" className="relative overflow-hidden pt-10 sm:pt-16">
+    <section id="home" className="relative overflow-hidden pb-8 pt-10 sm:pb-10 sm:pt-16">
       {/* 배경 데코 */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-brand-100/60 blur-3xl" />
