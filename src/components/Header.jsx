@@ -38,7 +38,7 @@ export default function Header() {
             alt="한솔"
             className="h-8 w-auto sm:h-9"
           />
-          <span className="text-base font-extrabold tracking-tight text-brand sm:text-lg">
+          <span className="text-base font-extrabold tracking-tight text-slate-900 sm:text-lg">
             금융파트너스
           </span>
         </Link>
