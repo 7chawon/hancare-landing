@@ -117,12 +117,12 @@ export default function RecruitPage() {
 
       {/* 하단 프로모션 배너 (얇게 + 캐릭터는 위로 튀어나오게) */}
       <section className="container-page mt-20 sm:mt-28">
-        <div className="relative flex items-center gap-3 rounded-[24px] bg-brand-50/70 py-4 pl-24 pr-5 sm:gap-4 sm:py-5 sm:pl-44 sm:pr-8">
-          {/* 캐릭터: 밑면을 박스 바닥에 맞추고 위로 돌출 */}
+        <div className="relative flex items-center gap-3 rounded-[24px] bg-brand-50/70 py-4 pl-28 pr-5 sm:gap-4 sm:py-5 sm:pl-52 sm:pr-8">
+          {/* 캐릭터: 밑면을 박스 바닥에 맞추고 위로 돌출 (글자 안 가리게 왼쪽으로) */}
           <img
             src={bannerImg}
             alt="한케어 스타터팩"
-            className="pointer-events-none absolute bottom-0 left-2 h-28 w-auto object-contain sm:left-5 sm:h-40"
+            className="pointer-events-none absolute bottom-0 -left-3 h-28 w-auto object-contain sm:-left-2 sm:h-40"
           />
           <div className="flex-1">
             <p className="text-xs font-bold text-brand-700 sm:text-sm">[1+1 찬스] 한케어 스타터팩!</p>
