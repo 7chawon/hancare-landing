@@ -142,7 +142,7 @@ function ImageSlot({ name }) {
 function ConsultModal({ open, onClose }) {
   const [step, setStep] = useState(0) // 0~2: 선택 / 3: 정보입력
   const [answers, setAnswers] = useState({})
-  const [form, setForm] = useState({ name: '', phone: '', memo: '', agree: false })
+  const [form, setForm] = useState({ name: '', phone: '', memo: '', consents: emptyConsents() })
   const [done, setDone] = useState(false)
 
   // 열릴 때 초기화 + 바디 스크롤 잠금 + ESC 닫기
