@@ -45,13 +45,13 @@ export default function Header() {
         {/* 데스크탑 메뉴 — 페이지 정중앙 고정 */}
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
           {NAV.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
+            <Link
+              key={item.to}
+              to={item.to}
               className="text-sm font-semibold text-slate-600 transition hover:text-brand"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
