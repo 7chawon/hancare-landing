@@ -103,7 +103,7 @@ export default function Hero() {
               </div>
             ))}
           </div>
-          <Star className="absolute -bottom-2 left-1/2 animate-twinkle text-lime-point" size={22} />
+          <Star className="absolute -bottom-2 left-1/2 -translate-x-1/2 animate-twinkle text-lime-point" size={22} />
         </div>
       </div>
     </section>
