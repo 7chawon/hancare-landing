@@ -175,7 +175,10 @@ function ConsultModal({ open, onClose }) {
 
   const goBack = () => setStep((s) => Math.max(0, s - 1))
 
-  const formValid = form.name.trim() && form.phone.trim() && form.agree
+  const formValid =
+    form.name.trim() &&
+    form.phone.trim() &&
+    REQUIRED_CONSENTS.every((k) => form.consents[k])
 
   const submit = (e) => {
     e.preventDefault()
