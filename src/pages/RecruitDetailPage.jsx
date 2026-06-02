@@ -145,13 +145,15 @@ function ShortsEmbed({ shortsId, title }) {
   )
 }
 
-/* 관련 카드 썸네일 자리 */
+/* 관련 카드 썸네일 */
 function CardThumb({ name, bg }) {
   return (
-    <div className={`relative flex aspect-[4/3] items-center justify-center bg-gradient-to-br ${bg}`}>
-      <code className="rounded-md bg-white/60 px-2 py-1 text-[9px] font-semibold text-slate-700 backdrop-blur-sm">
-        {name}
-      </code>
+    <div className={`aspect-[4/3] overflow-hidden bg-gradient-to-br ${bg}`}>
+      <img
+        src={img(name)}
+        alt=""
+        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+      />
     </div>
   )
 }
