@@ -4,7 +4,7 @@ import { useConsult } from '../components/ConsultModal.jsx'
 
 const VALUES = [
   { emoji: '🤝', title: '신뢰', desc: '고객의 입장에서 정직하게 설계합니다.' },
-  { emoji: '🎯', title: '전문성', desc: '삼성화재 공식 파트너의 검증된 역량.' },
+  { emoji: '🎯', title: '전문성', desc: '공식 파트너로서 검증된 전문 역량.' },
   { emoji: '💚', title: '책임', desc: '가입부터 청구까지 평생 함께합니다.' },
 ]
 
