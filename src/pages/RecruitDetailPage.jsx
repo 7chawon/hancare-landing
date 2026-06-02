@@ -70,7 +70,7 @@ export default function RecruitDetailPage() {
       <section className="container-page mt-12">
         <div className="mx-auto max-w-2xl space-y-4">
           {article.body.map((p, i) => (
-            <p key={i} className="text-[15px] leading-relaxed text-slate-600">
+            <p key={i} className="text-justify text-[15px] leading-relaxed text-slate-600">
               {p}
             </p>
           ))}
