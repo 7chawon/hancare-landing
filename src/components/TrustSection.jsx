@@ -1,10 +1,14 @@
 import { Star, ArrowUpRight } from './Decorations.jsx'
 import { useConsult } from './ConsultModal.jsx'
 
+// /src/image/trust-*.png 를 자동 매핑 (파일 없으면 undefined → 이모지로 폴백)
+const trustIcons = import.meta.glob('../image/trust-*.png', { eager: true, import: 'default' })
+const iconUrl = (name) => trustIcons[`../image/${name}`]
+
 const POINTS = [
-  { emoji: '🏆', title: '검증된 전문성', desc: '검증된 공식 파트너 설계사' },
-  { emoji: '⚡', title: '빠른 상담', desc: '신청 후 24시간 내 연락' },
-  { emoji: '💚', title: '평생 케어', desc: '가입부터 청구까지 책임' },
+  { img: 'trust-expertise.png', emoji: '🏆', title: '검증된 전문성', desc: '검증된 공식 파트너 설계사' },
+  { img: 'trust-fast.png', emoji: '⚡', title: '빠른 상담', desc: '신청 후 24시간 내 연락' },
+  { img: 'trust-care.png', emoji: '💚', title: '평생 케어', desc: '가입부터 청구까지 책임' },
 ]
 
 export default function TrustSection() {
