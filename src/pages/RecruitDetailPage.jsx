@@ -36,11 +36,20 @@ export default function RecruitDetailPage() {
         </Link>
       </div>
 
-      {/* 히어로 */}
+      {/* 히어로 — 이미지 박스 꽉 채움 + 박스색 좌측 그라데이션 블렌딩, 텍스트 최상단 레이어 */}
       <section className="container-page mt-5">
-        <div className={`grid items-center gap-8 overflow-hidden rounded-[28px] bg-gradient-to-br ${article.bg} p-8 sm:p-12 md:grid-cols-2`}>
-          <div>
-            <span className="inline-flex rounded-full bg-white/70 px-3 py-1 text-xs font-bold text-brand-700">
+        <div className="relative min-h-[300px] overflow-hidden rounded-[28px] bg-gradient-to-br from-brand-100 to-lime-soft sm:min-h-[360px]">
+          {/* 이미지: 박스에 딱 맞게 */}
+          <img
+            src={img(article.image)}
+            alt={article.title}
+            className="absolute inset-0 h-full w-full object-cover object-right"
+          />
+          {/* 박스 컬러 그라데이션 오버레이 (왼쪽=박스색 → 오른쪽=투명) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-100 from-20% via-brand-100/85 via-50% to-transparent" />
+          {/* 텍스트: 최상단 레이어 */}
+          <div className="relative z-10 max-w-md p-8 sm:p-12">
+            <span className="inline-flex rounded-full bg-white/80 px-3 py-1 text-xs font-bold text-brand-700 backdrop-blur-sm">
               {TAB_LABELS[article.tab]}
             </span>
             <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
@@ -48,11 +57,6 @@ export default function RecruitDetailPage() {
             </h1>
             <p className="mt-3 text-sm text-slate-700 sm:text-base">{article.summary}</p>
           </div>
-          <img
-            src={img(article.image)}
-            alt={article.title}
-            className="mx-auto w-full max-w-sm rounded-[20px] object-cover shadow-card"
-          />
         </div>
       </section>
 
