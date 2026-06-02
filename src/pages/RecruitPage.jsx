@@ -40,7 +40,7 @@ export default function RecruitPage() {
 
       {/* 소메뉴 탭 */}
       <section className="container-page mt-10">
-        <div className="flex flex-wrap justify-center gap-2.5">
+        <div className="mx-auto flex max-w-xl gap-2.5">
           {TAB_ORDER.map((key, i) => {
             const active = tab === i
             return (
@@ -48,7 +48,7 @@ export default function RecruitPage() {
                 key={key}
                 type="button"
                 onClick={() => changeTab(i)}
-                className={`rounded-full border px-5 py-2.5 text-sm font-semibold transition ${
+                className={`flex-1 whitespace-nowrap rounded-full border px-3 py-2.5 text-center text-sm font-semibold transition ${
                   active
                     ? 'border-brand bg-brand text-white shadow-glow'
                     : 'border-slate-200 bg-white text-slate-600 hover:border-brand-200 hover:text-brand'
