@@ -22,7 +22,7 @@ export const ARTICLES = [
   {
     slug: 'income-cases',
     tab: 'about',
-    title: '파트너스 수익 사례 모음.zip',
+    title: '파트너스 수익 사례',
     summary:
       '한케어 파트너스가 가장 많이 받는 질문, "정말 벌 수 있나요?" 실제 활동 중인 설계사들의 수익 구조와 사례를 한눈에 모았습니다.',
     image: 'recruit-about-1.png',
