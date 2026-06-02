@@ -6,7 +6,7 @@ import { getArticle, getRelated, TAB_LABELS, img } from '../data/recruitContent.
 export default function RecruitDetailPage() {
   const { slug } = useParams()
   const article = getArticle(slug)
-  const consult = useConsult()
+  const consult = useRecruitApply()
 
   if (!article) {
     return (
