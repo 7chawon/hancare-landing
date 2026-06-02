@@ -38,10 +38,16 @@ export default {
           '0%, 100%': { opacity: '0.4', transform: 'scale(0.9)' },
           '50%': { opacity: '1', transform: 'scale(1.1)' },
         },
+        ringbell: {
+          '0%, 20%, 100%': { transform: 'rotate(0deg)' },
+          '4%, 12%': { transform: 'rotate(-13deg)' },
+          '8%, 16%': { transform: 'rotate(13deg)' },
+        },
       },
       animation: {
         floaty: 'floaty 5s ease-in-out infinite',
         twinkle: 'twinkle 3s ease-in-out infinite',
+        ringbell: 'ringbell 2.5s ease-in-out infinite',
       },
     },
   },
