@@ -4,6 +4,12 @@
  * - image: /src/image/ 에 저장할 파일명 (현재는 placeholder 로 표시)
  */
 
+// /src/image/*.png 를 한 번에 가져와 파일명 → URL 로 매핑
+const imageModules = import.meta.glob('../image/*.png', { eager: true, import: 'default' })
+export function img(name) {
+  return imageModules[`../image/${name}`]
+}
+
 export const TAB_LABELS = {
   about: '파트너스 알아보기',
   guide: '지원 & 교육',
