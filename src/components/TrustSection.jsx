@@ -44,8 +44,12 @@ export default function TrustSection() {
               key={p.title}
               className="rounded-card border border-slate-100 bg-brand-50/40 p-6 text-center transition hover:-translate-y-1 hover:shadow-card"
             >
-              <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-3xl shadow-card">
-                {p.emoji}
+              <span className="mx-auto flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-card">
+                {iconUrl(p.img) ? (
+                  <img src={iconUrl(p.img)} alt={p.title} className="h-10 w-10 object-contain" />
+                ) : (
+                  <span className="text-3xl">{p.emoji}</span>
+                )}
               </span>
               <h3 className="mt-4 text-lg font-bold">{p.title}</h3>
               <p className="mt-1 text-sm text-slate-500">{p.desc}</p>
